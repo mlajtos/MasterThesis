@@ -1,0 +1,159 @@
+\documentclass[12pt, oneside, a4paper]{book}
+
+% UTF-8 kódovanie pre vstup
+\usepackage[utf8]{inputenc}
+
+% slovenčina
+\usepackage[slovak]{babel}
+
+% riadkovanie 1,5
+\usepackage[onehalfspacing]{setspace}
+
+% referencie
+\usepackage[
+  backend=biber,
+  hyperref=true,
+  url=true,
+  maxcitenames=2,
+  citestyle=authortitle,
+  bibstyle=authortitle,
+  autocite=footnote,
+  language=english % toto mi dá poslovenčený názov (nechápem, ale funguje)
+]{biblatex}
+
+% generované Mendeleyom
+\addbibresource{library.bib}
+
+% aby fungovali podjebníky v linkoch
+\DeclareSourcemap{
+ \maps[datatype=bibtex]{
+   \map{
+     \step[fieldsource=url,
+       match=\regexp{\\_},
+       replace=\regexp{_}]
+   }
+ }
+}
+
+% okraje
+\usepackage[
+  top=2.5cm,
+  bottom=2.5cm,
+  left=3.5cm,
+  right=2.0cm
+]{geometry}
+
+% obrázky
+\usepackage{graphicx}
+\graphicspath{{obrazky/}}
+
+% fonty
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage[light,math]{iwona}
+%\usepackage{inconsolata}
+%\usepackage{charter}
+%\usepackage[bitstream-charter]{mathdesign}
+\usepackage{gensymb} % na \degree
+ 
+% klikateľné referencie a linky
+\usepackage[
+  unicode=true,
+  breaklinks=true
+]{hyperref}
+\hypersetup{colorlinks=false}
+
+% 
+\usepackage{tocbibind}
+
+% matika
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% zdrojáky
+\usepackage{listings}
+\lstset{
+  basicstyle=\footnotesize\linespread{0.94}\ttfamily,
+  numbers=left,
+  xleftmargin=2\parindent
+}
+\usepackage{multicol}
+\usepackage{totpages}
+
+% lepšie odkazy
+%\usepackage{url}
+
+\usepackage{float}
+\usepackage[bottom]{footmisc}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+
+% nejaké definície pre obal, titulný list, atď.
+\def\university{Univerzita Komenského v Bratislave}
+\def\universityShort{UK}
+\def\faculty{Fakulta matematiky, fyziky a informatiky}
+\def\facultyShort{FMFI}
+\def\studyProgramme{Kognitívna veda}
+\def\branchOfStudy{9.2.11 Kognitívna veda}
+\def\educationalDepartment{Centrum pre kognitívnu vedu}
+\def\thesisTitle{Nástroj na interaktívne experimentovanie\\s umelými neurónovými sieťami}
+\def\thesisSubtitle{Podtitul práce}
+\def\thesisType{Diplomová práca}
+\def\author{Bc.~Milan Lajtoš}
+\def\authorAbstract{LAJTOŠ, Milan}
+\def\advisor{RNDr.~Kristína Rebrová~PhD.}
+\def\place{Bratislava}
+\def\date{2014}
+
+\begin{document}
+ 
+% žiadna hlavička stránky
+\pagestyle{plain}
+ 
+% úvodná časť
+\frontmatter
+
+% obal
+\input{obal}
+
+% obal nepočítame do strán
+\setcounter{page}{0}
+
+% titulny list
+\input{titulnyList}
+
+% zadanie
+\input{zadanie}
+
+% abstrakt v slovencine a anglictine
+\input{abstrakt}
+
+% predhovor
+\input{predhovor}
+
+% obsah
+\tableofcontents
+
+% zoznam ilustracii
+\listoffigures
+
+% hlavná textová časť
+\mainmatter{}
+
+% hlavný obsah práce
+\input{obsah}
+
+% záverečná časť
+\backmatter{}
+
+% literatúra
+\printbibliography[heading=bibnumbered]
+
+% príloha
+\appendix
+\input{priloha}
+
+\end{document}
+			
