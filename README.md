@@ -1,6 +1,8 @@
 MasterThesis
 ============
 
+[Demonštračné video](https://www.youtube.com/watch?v=JsyKf_RlWLo)
+
 Táto práca obsahuje popis nového prostredia určeného na vytváranie a porozumenie umelým neurónovým sieťam ako aj prototyp takéhoto prostredia.
 
 Súbor "MasterThesis.pdf" obsahuje motiváciu, teoretické predpoklady a výsledok snahy o vytvorenie popísaného prostredia. Prototyp je založený na paradigme vizuálneho programovania obohatené o vizualizácie, ktoré používateľovi umožňujú lepšie pochopenie činnosti systému.
